@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Image Metadata</title>
+<link rel="stylesheet" href="assets/highlight.css">
+<script src="assets/highlight.js"></script>
+<script src="assets/dropzone.js"></script>
+</head>
+
+<body>
+<header>
+  <h1>This is a heading</h1>
+  <p>Adipisicing laboriosam aliquam accusamus eum quibusdam! Iusto quidem ab hic quo rerum. Adipisci animi culpa praesentium provident a. Officia minus ab suscipit aspernatur enim id! Vel consectetur beatae nam perspiciatis.</p>
+</header>
+
+<section>
+  <p>Amet vero at maxime non dolorem aut id esse explicabo magni! Nam ratione soluta assumenda optio quis itaque eveniet blanditiis magnam. In libero dolores maxime exercitationem aliquam voluptates. Reprehenderit officia?</p>
+</section>
+</body>
+
+<!--
+<form action="/upload" method="post" enctype="multipart/form-data">
+  <input type="file" name="file">
+  <input type="submit" value="Upload file">
+</form>
+-->
+
+<hr>
+
+<form  style="margin-top:10px;border:1px solid red;width:50px;height:50px;" action="/upload" id="dropzone"></form>
+
+<hr>
+
+<h2>Results</h2>
+<div id="container">
+  <div id="inner"></div>
+</div>
+
+<script>
+hljs.initHighlightingOnLoad();
+Dropzone.autoDiscover = false;
+
+var myDropzone = new Dropzone("#dropzone", {
+maxFilesize: 1024, // MB
+init: function() {
+this.on("success", function(file, responseText) {
+  var parent = document.getElementById('inner');
+  parent.innerHTML ="<pre><code class=\"json\">" + responseText + "</pre>";
+  //$( ".inner" ).prepend( "<pre><code class=\"json\">" + responseText + "</pre>" );
+  //$( ".inner" ).prepend( "<p>" + file.name + "</p>" );
+  // re-init hljs for newly added content
+  hljs.initHighlighting.called = false;
+  hljs.initHighlighting();
+  });
+}
+});
+</script>
+</html>

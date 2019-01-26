@@ -1,0 +1,36 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    byebug (10.0.2)
+    ffi (1.10.0)
+    listen (3.1.5)
+      rb-fsevent (~> 0.9, >= 0.9.4)
+      rb-inotify (~> 0.9, >= 0.9.7)
+      ruby_dep (~> 1.2)
+    mustermann (1.0.3)
+    rack (2.0.6)
+    rack-protection (2.0.5)
+      rack
+    rb-fsevent (0.10.3)
+    rb-inotify (0.10.0)
+      ffi (~> 1.0)
+    rerun (0.13.0)
+      listen (~> 3.0)
+    ruby_dep (1.5.0)
+    sinatra (2.0.5)
+      mustermann (~> 1.0)
+      rack (~> 2.0)
+      rack-protection (= 2.0.5)
+      tilt (~> 2.0)
+    tilt (2.0.9)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  byebug
+  rerun (~> 0.13.0)
+  sinatra (~> 2.0, >= 2.0.5)
+
+BUNDLED WITH
+   1.17.0.pre.1
